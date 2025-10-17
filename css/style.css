@@ -702,3 +702,14 @@ small {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.2); }
 }
+
+.feature-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.feature-card-link .feature-card:hover {
+    transform: translateY(-5px);
+    cursor: pointer;
+}
