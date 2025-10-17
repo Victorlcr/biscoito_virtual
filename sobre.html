@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sobre o biscoito_virtual</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon de biscoito da sorte -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍪</text></svg>">
+</head>
+<body>
+    <div class="emoji-background">
+        <div class="emoji">💡</div>
+        <div class="emoji">👨‍💻</div>
+        <div class="emoji">🚀</div>
+        <div class="emoji">🌟</div>
+        <div class="emoji">🎯</div>
+        <div class="emoji">🔧</div>
+        <div class="emoji">📱</div>
+        <div class="emoji">💻</div>
+        <div class="emoji">🔍</div>
+        <div class="emoji">✨</div>
+        <div class="emoji">📊</div>
+        <div class="emoji">🎨</div>
+        <div class="emoji">⚡</div>
+        <div class="emoji">🔮</div>
+        <div class="emoji">💾</div>
+    </div>
+    
+    <div class="container">
+        <header class="main-header">
+            <h1>biscoito_virtual</h1>
+            <p class="subtitle">a criação desse singelo site e seu propósito</p>
+        </header>
+        
+        <main class="main-content">
+            <!-- Sobre o Projeto -->
+            <div class="card">
+                <div class="card-icon">💡</div>
+                <div class="card-content">
+                    <h2>sobre o projeto</h2>
+                    <p>se você chegou até aqui, meu mais sinceros agradecimentos, 
+                        não é todo dia que faíscas acendem nesse breu, mas estou enxergando uma agorinha.</p>
+                    <p>fiz essa brincadeira como auxílio bolsa improvisado para o intercâmbio estudantil 
+                        em Portugal que participarei no início de 2026, o <a href="https://bkpsitecpsnew.blob.core.windows.net/uploadsitecps/sites/8/2025/03/Edital-ARI-29-2025-Programa-de-Mobilidade-CEETEPS-2o-Semestre-2025-PROMAIPS.pdf" style="color: unset;">
+                        edital</a> contempla a graduação "sanduíche"
+                        e a isenção de mensalidades com a instituição parceira, o restante? te vira! e aqui estamos :D
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Tecnologias -->
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <div class="card-content">
+                    <h2>como funciona</h2>
+                    <p>você pode ajudar enviando qualquer valor para o pix abaixo<br>
+                        spoiler*clicar no globo copia a chave*
+                    </p>
+                    
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-icon copyable" onclick="copyFeatureText(this)">
+                                🌐
+                                <div class="copy-tooltip">Copiado!</div>
+                            </div>
+                            <h3>(11) 9 7516-8861</h3>
+                            <p>sugestões: R$3 | R$7 | R$15</p>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon">📱</div>
+                            <h3>não jogue fora o recibo</h3>
+                            <p>pra retirar sua mensagem é preciso dos 4 últimos dígitos do ID de transferência</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Desenvolvedor -->
+            <div class="card highlight">
+                <div class="card-icon">👨‍💻</div>
+                <div class="card-content">
+                    <h2>sobre o desenvolvedor</h2>
+                    <div class="developer-info">
+                        <div class="developer-avatar">
+                            <div class="avatar-placeholder">💻</div>
+                        </div>
+                        <div class="developer-details">
+                            <h3>victor_lorenzo_castro_rodrigues</h3>
+                            <p class="developer-title">estudante_programador</p>
+                            <p class="developer-bio">aluno da fatec jundiaí com a chance de aprender mais um cadinho de zeros e uns 
+                                em outro país.<br>
+                                "Nós só podemos ver um pouco do futuro, mas o suficiente para nos dar a certeza de que há muito a se fazer" Alan Turing
+                            </p>
+                            <p>você pode me contatar nos endereços abaixo</p>
+                            <div class="developer-links">
+                                <a href="https://github.com/Victorlcr" target="_blank" class="social-link" style="color:unset;">
+                                    <span class="social-icon">🐙</span>
+                                    GitHub
+                                </a>
+                                <a href="https://linkedin.com/in/victrocasro" target="_blank" class="social-link" style="color:unset;">
+                                    <span class="social-icon">💼</span>
+                                    LinkedIn
+                                </a>
+                                <a href="mailto:victorcasro@gmail.com" class="social-link" style="color:unset;">
+                                    <span class="social-icon">📧</span>
+                                    E-mail
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <div class="cta-buttons">
+                    <a href="/" class="primary-button" style="place-self: center;">voltar ao início</a>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="main-footer">
+            <p>biscoito_virtual • Desenvolvido com ❤️ • oloronzo • 2025</p>
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/sobre.html">Sobre</a>
+            </div>
+        </footer>
+    </div>
+    <script>
+        function copyFeatureText(element) {
+            const featureItem = element.closest('.feature-item, .tech-item');
+            const h3Element = featureItem.querySelector('h3');
+            const textToCopy = h3Element.textContent;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                element.classList.add('copied');
+                setTimeout(() => {
+                    element.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                fallbackCopyText(textToCopy, element);
+            });
+        }
+        
+        function fallbackCopyText(text, element) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.opacity = '0';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    element.classList.add('copied');
+                    setTimeout(() => {
+                        element.classList.remove('copied');
+                    }, 2000);
+                }
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+                alert('Não foi possível copiar o texto. Tente selecionar e copiar manualmente.');
+            }
+            
+            document.body.removeChild(textArea);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const copyableIcons = document.querySelectorAll('.feature-icon.copyable, .tech-icon.copyable');
+            copyableIcons.forEach(icon => {
+                icon.style.cursor = 'pointer';
+                icon.setAttribute('title', 'Clique para copiar o título');
+            });
+        });
+    </script>
+</body>
+</html>

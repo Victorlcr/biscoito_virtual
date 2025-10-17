@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Cards</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon de biscoito da sorte -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍪</text></svg>">
+    <style>
+        /* Estilos para a página de erro */
+        .error-page {
+            display: none;
+        }
+        
+        .orbit-animation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300px;
+        }
+        
+        .orbit-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+        
+        .orbit-path {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 100px;
+            border: 2px dashed rgba(67, 97, 238, 0.3);
+            border-radius: 50%;
+            animation: orbit-rotate 20s linear infinite;
+        }
+        
+        .central-point {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #4361ee, #4895ef);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(107, 134, 255, 0.6);
+        }
+        
+        @keyframes orbit-rotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        @keyframes ball-orbit {
+            0%, 100% { 
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 0 15px rgba(67, 97, 238, 0.5);
+            }
+            50% { 
+                transform: translateX(-50%) scale(1.2);
+                box-shadow: 0 0 25px rgba(67, 97, 238, 0.8);
+            }
+        }
+        
+        .pulsating-dots {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 250px;
+            height: 150px;
+        }
+        
+        .pulsating-dots span {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(67, 97, 238, 0.5);
+            border-radius: 50%;
+            animation: pulsate 2s ease-in-out infinite;
+        }
+        
+        .pulsating-dots span:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+        .pulsating-dots span:nth-child(2) { top: 20%; left: 80%; animation-delay: 0.3s; }
+        .pulsating-dots span:nth-child(3) { top: 60%; left: 10%; animation-delay: 0.6s; }
+        .pulsating-dots span:nth-child(4) { top: 80%; left: 70%; animation-delay: 0.9s; }
+        .pulsating-dots span:nth-child(5) { top: 40%; left: 90%; animation-delay: 1.2s; }
+        
+        @keyframes pulsate {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.5); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="emoji-background">
+        <div class="emoji">💌</div>
+        <div class="emoji">✨</div>
+        <div class="emoji">🎨</div>
+        <div class="emoji">🔖</div>
+        <div class="emoji">📝</div>
+        <div class="emoji">🌈</div>
+        <div class="emoji">🖼️</div>
+        <div class="emoji">📬</div>
+        <div class="emoji">💫</div>
+        <div class="emoji">🎯</div>
+        <div class="emoji">🌟</div>
+        <div class="emoji">💖</div>
+        <div class="emoji">🎉</div>
+        <div class="emoji">📮</div>
+        <div class="emoji">💕</div>
+    </div>
+    
+    <!-- Página Principal -->
+    <div id="home-page" class="container">
+        <header class="main-header">
+            <h1>biscoito_virtual</h1>
+            <p class="subtitle">em tempos de rede, abra um biscoito da sorte online</p>
+            <p class="subtitle">não tem o biscoito mas quem sabe a sorte</p>
+        </header>
+        
+        <main class="main-content">
+            <!-- Search Section -->
+            <div class="card">
+                <div class="card-icon">🔍</div>
+                <div class="card-content">
+                    <h2>veja sua mensagem única</h2>
+                    <div class="input-group">
+                        <input type="text" id="messageCode" 
+                               placeholder="ex: AB01" 
+                               maxlength="4"
+                               pattern="[A-Za-z0-9]{4}"
+                               class="styled-input">
+                        <button onclick="viewMessage()" class="primary-button">
+                            desembrulhar
+                        </button>
+                    </div>
+                    <small>preencha com os 4 últimos dígitos do identificador de transferência</small>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <!-- Features -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsive</h3>
+                    <p>Looks great on all devices</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="main-footer">
+            <p>biscoito_virtual • 2025 • oloronzo</p>
+        </footer>
+    </div>
+    
+    <!-- Página de Erro -->
+    <div id="error-page" class="container error-page">
+        <header class="main-header">
+            <h1>biscoito_virtual</h1>
+        </header>
+        
+        <main class="main-content">
+            <div class="error-container">
+                <div class="error-code">404</div>
+                
+                <div class="working-message">
+                    <p>não parece ter nem o farelo aqui...</p>
+                    <p>tente novamente em alguns instantes ;-;</p>
+                </div>
+                
+                <!-- Nova animação de órbita -->
+                <div class="orbit-animation">
+                    <div class="orbit-container">
+                        <div class="orbit-path"></div>
+                        <div class="central-point"></div>
+                        <div class="pulsating-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="/" class="primary-button" onclick="showHomePage()">
+                        voltar ao ínicio
+                    </a>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="main-footer">
+            <p>biscoito_virtual • 2025 • oloronzo</p>
+        </footer>
+    </div>
+
+    <script>
+        // Sistema de roteamento simples
+        function handleRouting() {
+            const path = window.location.pathname;
+            
+            // Se for a raiz ou index, mostrar página inicial
+            if (path === '/' || path === '/index.html') {
+                showHomePage();
+                return;
+            }
+            
+            // Verificar se é um código de mensagem (4 caracteres)
+            const codeMatch = path.match(/\/([A-Za-z0-9]{4})(\.html)?$/);
+            
+            if (codeMatch) {
+                const code = codeMatch[1].toUpperCase();
+                checkMessageExists(code);
+            } else {
+                // Se não for um código válido, mostrar erro
+                showErrorPage('URLINV');
+            }
+        }
+        
+        // Verificar se uma mensagem existe
+        function checkMessageExists(code) {
+            // Em uma implementação real, você verificaria em um servidor
+            // Por enquanto, vamos verificar no localStorage
+            const messages = JSON.parse(localStorage.getItem('messageCards') || '{}');
+            
+            if (messages[code]) {
+                // Redirecionar para a página da mensagem
+                window.location.href = `/${code}.html`;
+            } else {
+                // Mostrar página de erro com o código
+                showErrorPage(code);
+            }
+        }
+        
+        // Mostrar página inicial
+        function showHomePage() {
+            document.getElementById('home-page').style.display = 'block';
+            document.getElementById('error-page').style.display = 'none';
+            window.history.replaceState({}, '', '/');
+        }
+        
+        // Mostrar página de erro
+        function showErrorPage(code) {
+            document.getElementById('home-page').style.display = 'none';
+            document.getElementById('error-page').style.display = 'block';
+            
+            // Atualizar o código exibido
+            document.getElementById('currentCode').textContent = code;
+            
+            // Efeito de digitação
+            const workingMessage = document.querySelector('.working-message');
+            const originalHTML = workingMessage.innerHTML;
+            workingMessage.innerHTML = '';
+            
+            let i = 0;
+            const typeWriter = () => {
+                if (i < originalHTML.length) {
+                    workingMessage.innerHTML += originalHTML.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 50);
+                }
+            };
+            
+            setTimeout(typeWriter, 500);
+        }
+        
+        // Função para visualizar mensagem (da página inicial)
+        function viewMessage() {
+            const codeInput = document.getElementById('messageCode');
+            const code = codeInput.value.trim().toUpperCase();
+            
+            // Validar código
+            if (code.length !== 4) {
+                showNotification('preencha os 4 dígitos, vamos lá', 'error');
+                codeInput.focus();
+                return;
+            }
+            
+            if (!/^[A-Z0-9]{4}$/.test(code)) {
+                showNotification('só são permitidos números e letras', 'error');
+                codeInput.focus();
+                return;
+            }
+            
+            // Verificar se a mensagem existe
+            checkMessageExists(code);
+        }
+        
+        // Permitir pressionar Enter para buscar
+        document.getElementById('messageCode').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                viewMessage();
+            }
+        });
+        
+        // Transformar em maiúsculas automaticamente
+        document.getElementById('messageCode').addEventListener('input', function(e) {
+            this.value = this.value.toUpperCase();
+        });
+        
+        // Função de notificação
+        function showNotification(message, type = 'info') {
+            // Criar elemento de notificação
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()">×</button>
+            `;
+            
+            // Adicionar à página
+            document.body.appendChild(notification);
+            
+            // Remover após 5 segundos
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+        
+        // Inicializar roteamento quando a página carregar
+        document.addEventListener('DOMContentLoaded', handleRouting);
+        
+        // Manipular o botão voltar/avançar do navegador
+        window.addEventListener('popstate', handleRouting);
+    </script>
+</body>
+</html>

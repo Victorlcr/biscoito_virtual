@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>biscoito_virtual</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Favicon de biscoito da sorte -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍪</text></svg>">
+</head>
+<body>
+    <div class="emoji-background">
+        <div class="emoji">💌</div>
+        <div class="emoji">✨</div>
+        <div class="emoji">🎨</div>
+        <div class="emoji">🔖</div>
+        <div class="emoji">📝</div>
+        <div class="emoji">🌈</div>
+        <div class="emoji">🖼️</div>
+        <div class="emoji">📬</div>
+        <div class="emoji">💫</div>
+        <div class="emoji">🎯</div>
+        <div class="emoji">🌟</div>
+        <div class="emoji">💖</div>
+        <div class="emoji">🎉</div>
+        <div class="emoji">📮</div>
+        <div class="emoji">💕</div>
+    </div>
+    
+    <div class="container">
+        <header class="main-header">
+            <h1>biscoito_virtual</h1>
+            <p class="subtitle">em tempos de rede, abra um biscoito da sorte online</p>
+            <p class="subtitle">não tem o biscoito mas quem sabe a sorte</p>
+        </header>
+        
+        <main class="main-content">
+            <!-- Search Section -->
+            <div class="card highlight">
+                <div class="card-icon">🔍</div>
+                <div class="card-content">
+                    <h2>veja sua mensagem única</h2>
+                    <div class="input-group">
+                        <input type="text" id="messageCode" 
+                               placeholder="ex: AB01" 
+                               maxlength="4"
+                               pattern="[A-Za-z0-9]{4}"
+                               class="styled-input">
+                        <button onclick="viewMessage()" class="primary-button">
+                            desembrulhar
+                        </button>
+                    </div>
+                    <small>preencha com os 4 últimos dígitos do identificador de transferência</small>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <!-- Features -->
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Responsive</h3>
+                    <p>Looks great on all devices</p>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="main-footer">
+            <p>biscoito_virtual • 2025 • oloronzo</p>
+        </footer>
+    </div>
+
+    <script>
+        function viewMessage() {
+            const codeInput = document.getElementById('messageCode');
+            const code = codeInput.value.trim().toUpperCase();
+            
+            // Validate code
+            if (code.length !== 4) {
+                showNotification('preencha os 4 dígitos, vamos lá', 'error');
+                codeInput.focus();
+                return;
+            }
+            
+            if (!/^[A-Z0-9]{4}$/.test(code)) {
+                showNotification('só são permitidos números e letras', 'error');
+                codeInput.focus();
+                return;
+            }
+            
+            // Redirect to message
+            window.location.href = `/${code}.html`;
+        }
+        
+        // Allow Enter key to search
+        document.getElementById('messageCode').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                viewMessage();
+            }
+        });
+        
+        // Auto-uppercase
+        document.getElementById('messageCode').addEventListener('input', function(e) {
+            this.value = this.value.toUpperCase();
+        });
+        
+        // Notification function
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <span>${message}</span>
+                <button onclick="this.parentElement.remove()">×</button>
+            `;
+            
+            // Add to page
+            document.body.appendChild(notification);
+            
+            // Remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

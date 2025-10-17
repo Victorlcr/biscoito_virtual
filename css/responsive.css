@@ -1,0 +1,112 @@
+/* Tablets and Mobile */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    .main-header {
+        padding: 40px 0 30px;
+    }
+    
+    .main-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .main-content {
+        gap: 25px;
+    }
+    
+    .input-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .admin-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .admin-header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .color-presets {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .custom-colors {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+    }
+    
+    .url-display {
+        flex-direction: column;
+    }
+    
+    .emoji {
+        font-size: 18px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .main-header h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    .card-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .feature-card {
+        padding: 20px;
+    }
+    
+    .admin-main {
+        padding: 20px 15px;
+    }
+    
+    .primary-button, .secondary-button {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .message-preview {
+        min-height: 150px;
+        padding: 20px;
+    }
+    
+    .color-presets {
+        grid-template-columns: 1fr;
+    }
+    
+    .emoji {
+        font-size: 16px;
+    }
+}
